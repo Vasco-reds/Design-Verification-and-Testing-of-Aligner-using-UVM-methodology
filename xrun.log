@@ -1,0 +1,129 @@
+xrun: 25.03-s001: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun	25.03-s001: Started on Sep 03, 2026 at 02:54:40 EDT
+xrun
+	-Q
+	-unbuffered
+	-timescale 1ns/1ns
+	-sysv
+	-access +rw
+	+UVM_TESTNAME=cfs_algn_test_reg_access
+	-uvmnocdnsextra
+	-uvmhome /xcelium25.03/tools//methodology/UVM/CDNS-1.2/sv
+	/xcelium25.03/tools//methodology/UVM/CDNS-1.2/sv/src/uvm_macros.svh
+	design.sv
+	testbench.sv
+  package cfs_algn_test_pkg;
+                          |
+xmvlog: *W,TSNSPK (cfs_algn_test_pkg.sv,8|26): `timescale is not specified for the package.  The default timescale of 1ns/1ns will be assumed for this package.
+        void'(std::randomize(item)) ; 
+                                |
+xmvlog: *W,RNDRARGW (cfs_algn_test_reg_access.sv,52|32): The argument to scope randomize has a terminal type of handle and pre/post randomize of classes are not called in scope randomize.
+  cfs_aligner dut(
+                |
+xmelab: *W,CUVWSP (./testbench.sv,56|16): 7 output ports were not connected:
+xmelab: (./cfs_aligner.v,29): md_rx_ready
+xmelab: (./cfs_aligner.v,30): md_rx_err
+xmelab: (./cfs_aligner.v,32): md_tx_valid
+xmelab: (./cfs_aligner.v,33): md_tx_data
+xmelab: (./cfs_aligner.v,34): md_tx_offset
+xmelab: (./cfs_aligner.v,35): md_tx_size
+xmelab: (./cfs_aligner.v,39): irq
+
+  cfs_aligner dut(
+                |
+xmelab: *W,CUVWSI (./testbench.sv,56|16): 6 input ports were not connected:
+xmelab: (./cfs_aligner.v,25): md_rx_valid
+xmelab: (./cfs_aligner.v,26): md_rx_data
+xmelab: (./cfs_aligner.v,27): md_rx_offset
+xmelab: (./cfs_aligner.v,28): md_rx_size
+xmelab: (./cfs_aligner.v,36): md_tx_ready
+xmelab: (./cfs_aligner.v,37): md_tx_err
+
+	Top level design units:
+		uvm_pkg
+		cfs_apb_pkg
+		cfs_algn_pkg
+		cfs_algn_test_pkg
+		testbench
+    .paddr(apb_if.paddr) , 
+                      |
+xmelab: *W,CUVMPW (./testbench.sv,60|22): port sizes differ in port connection(32/16) for the instance(testbench) .
+        void'(std::randomize(item)) ; 
+                                |
+xmelab: *W,RNDRARGW (./cfs_algn_test_reg_access.sv,52|32): The argument to scope randomize has a terminal type of handle and pre/post randomize of classes are not called in scope randomize.
+Loading snapshot worklib.testbench:sv .................... Done
+SVSEED default: 1
+xcelium> source /xcelium25.03/tools/xcelium/files/xmsimrc
+xcelium> source /xcelium25.03/tools//methodology/UVM/CDNS-1.2/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+UVM_INFO /xcelium25.03/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (25.03-s001)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+xmsim: *W,PRPASZ: Packed array at "worklib.uvm_pkg::uvm_string_to_bits.uvm_string_to_bits" of 115200 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 115200 worklib.uvm_pkg::uvm_string_to_bits.uvm_string_to_bits' or 'setenv SHM_PACKED_LIMIT 115200' to adjust limit.
+xmsim: *W,PRPASZ: Packed array at "worklib.uvm_pkg::uvm_bits_to_string.str" of 115200 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 115200 worklib.uvm_pkg::uvm_bits_to_string.str' or 'setenv SHM_PACKED_LIMIT 115200' to adjust limit.
+UVM_INFO @ 0: reporter [RNTST] Running test cfs_algn_test_reg_access...
+UVM_INFO cfs_apb_agent_config.sv(80) @ 0: uvm_test_top.env.apb_agent.agent_config [APB_CONFIG] The APB virtual interface is configured at "Start of the simulation" phase
+UVM_INFO cfs_apb_driver.sv(42) @ 100: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_WRITE , addr: 222 , data: a103fb0f , pre_drive_delay: 1 , post_drive_delay: 2
+UVM_INFO cfs_apb_monitor.sv(58) @ 135: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_WRITE , addr: 222, data: a103fb0f, response: CFS_APB_ERR, length: 3, prev_item_delay: 12
+UVM_INFO cfs_apb_driver.sv(42) @ 135: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_READ , addr: 20 , pre_drive_delay: 2 , post_drive_delay: 5
+UVM_INFO cfs_apb_monitor.sv(58) @ 185: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_READ , addr: 20, data: 0, response: CFS_APB_ERR, length: 3, prev_item_delay: 2
+UVM_INFO cfs_apb_driver.sv(42) @ 185: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_WRITE , addr: 20 , data: b0eae9b1 , pre_drive_delay: 4 , post_drive_delay: 1
+UVM_INFO cfs_apb_monitor.sv(58) @ 255: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_WRITE , addr: 20, data: b0eae9b1, response: CFS_APB_ERR, length: 3, prev_item_delay: 4
+UVM_INFO cfs_apb_driver.sv(42) @ 255: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_WRITE , addr: ed536fcb , data: 424c5149 , pre_drive_delay: 3 , post_drive_delay: 2
+UVM_INFO cfs_apb_monitor.sv(58) @ 315: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_WRITE , addr: ed536fcb, data: 424c5149, response: CFS_APB_ERR, length: 3, prev_item_delay: 3
+UVM_INFO cfs_apb_driver.sv(42) @ 315: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_READ , addr: 84344c5c , pre_drive_delay: 2 , post_drive_delay: 1
+UVM_INFO cfs_apb_monitor.sv(58) @ 365: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_READ , addr: 84344c5c, data: 0, response: CFS_APB_ERR, length: 3, prev_item_delay: 2
+UVM_INFO cfs_apb_driver.sv(42) @ 365: uvm_test_top.env.apb_agent.driver [DEBUG] Driving dir: CFS_APB_READ , addr: d5a856af , pre_drive_delay: 0 , post_drive_delay: 1
+UVM_INFO cfs_apb_monitor.sv(58) @ 395: uvm_test_top.env.apb_agent.monitor [DEBUG] Monitored item:: dir: CFS_APB_READ , addr: d5a856af, data: 0, response: CFS_APB_ERR, length: 3, prev_item_delay: 0
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [0] item: dir: CFS_APB_WRITE , addr: 94ece58f , data: 1176485f , pre_drive_delay: 5 , post_drive_delay: 3
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [1] item: dir: CFS_APB_WRITE , addr: a628ea7e , data: 77142e6a , pre_drive_delay: 0 , post_drive_delay: 1
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [2] item: dir: CFS_APB_READ , addr: 20cbafd7 , pre_drive_delay: 0 , post_drive_delay: 1
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [3] item: dir: CFS_APB_READ , addr: 90ced9a5 , pre_drive_delay: 5 , post_drive_delay: 1
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [4] item: dir: CFS_APB_WRITE , addr: 9718091d , data: cd27ab45 , pre_drive_delay: 5 , post_drive_delay: 0
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [5] item: dir: CFS_APB_READ , addr: ab246340 , pre_drive_delay: 2 , post_drive_delay: 4
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [6] item: dir: CFS_APB_READ , addr: 8e0d08fb , pre_drive_delay: 3 , post_drive_delay: 0
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [7] item: dir: CFS_APB_READ , addr: ffebdfed , pre_drive_delay: 3 , post_drive_delay: 3
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [8] item: dir: CFS_APB_WRITE , addr: 808063c5 , data: 3c8cba50 , pre_drive_delay: 3 , post_drive_delay: 4
+UVM_INFO cfs_algn_test_reg_access.sv(54) @ 395: uvm_test_top [DEBUG] [9] item: dir: CFS_APB_WRITE , addr: 95561ea7 , data: beb26aa2 , pre_drive_delay: 1 , post_drive_delay: 4
+UVM_INFO cfs_algn_test_reg_access.sv(57) @ 395: uvm_test_top [DEBUG] this is the end of the test
+UVM_INFO /xcelium25.03/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 395: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /xcelium25.03/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(851) @ 395: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   27
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[APB_CONFIG]     1
+[DEBUG]    23
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+
+Simulation complete via $finish(1) at time 395 NS + 72
+/xcelium25.03/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> exit
+TOOL:	xrun	25.03-s001: Exiting on Sep 03, 2026 at 02:54:48 EDT  (total: 00:00:08)

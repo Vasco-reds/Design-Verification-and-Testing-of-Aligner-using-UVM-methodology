@@ -1,0 +1,3 @@
+  CREATE_STREAM @100 {NAME:simple_seq T:Transactions SCOPE:uvm_test_top.env.apb_agent.sequencer STREAM:2705}
+  CREATE_STREAM @135 {NAME:seq_rw T:Transactions SCOPE:uvm_test_top.env.apb_agent.sequencer STREAM:2742}
+  CREATE_STREAM @255 {NAME:seq_rand T:Transactions SCOPE:uvm_test_top.env.apb_agent.sequencer STREAM:2769}
